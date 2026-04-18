@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Bill Calculator</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            width: 100%;
+            max-width: 480px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header .icon {
+            font-size: 48px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        h1 {
+            color: #1a1a2e;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: border-color 0.2s;
+            outline: none;
+        }
+        input:focus {
+            border-color: #0f3460;
+        }
+        .btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #0f3460, #533483);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            margin-top: 8px;
+        }
+        .btn:hover { opacity: 0.9; }
+        .slab-info {
+            background: #f0f4ff;
+            border-left: 4px solid #0f3460;
+            border-radius: 0 8px 8px 0;
+            padding: 14px 16px;
+            margin-bottom: 24px;
+            font-size: 13px;
+            color: #444;
+        }
+        .slab-info h3 { color: #0f3460; margin-bottom: 8px; font-size: 13px; }
+        .slab-info p { margin-bottom: 4px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <span class="icon">⚡</span>
+            <h1>Electricity Bill Calculator</h1>
+            <p class="subtitle">Calculate your monthly electricity bill</p>
+        </div>
+
+        <div class="slab-info">
+            <h3>📊 Rate Slab Structure</h3>
+            <p>First 100 units → ₹2 / unit</p>
+            <p>Next 100 units (101–200) → ₹3 / unit</p>
+            <p>Above 200 units → ₹5 / unit</p>
+            <p>Fixed Monthly Charge → ₹50</p>
+        </div>
+
+        <form action="ElectricityBillServlet" method="post">
+            <div class="form-group">
+                <label for="name">Consumer Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="prevReading">Previous Meter Reading (units)</label>
+                <input type="number" id="prevReading" name="prevReading" placeholder="e.g. 1500" min="0" required>
+            </div>
+            <div class="form-group">
+                <label for="currReading">Current Meter Reading (units)</label>
+                <input type="number" id="currReading" name="currReading" placeholder="e.g. 1750" min="0" required>
+            </div>
+            <button type="submit" class="btn">⚡ Calculate Bill</button>
+        </form>
+    </div>
+</body>
+</html>
