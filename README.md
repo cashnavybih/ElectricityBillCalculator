@@ -34,12 +34,11 @@ This is an Electricity Bill Calculator built using Java Servlets. The user enter
 
 ### Input Form
 
-!\[Input Form](screenshots/screenshot1.png)
+![Input Form](screenshots/screenshot1.png)
 
 ### Output / Result Page
 
-!\[Output Page](screenshots/screenshot2.png)
-
+![Output Page](screenshots/screenshot2.png)
 ## Servlet Concept Practiced
 
 doGet / doPost, Input Validation, Slab-wise Calculation, Dynamic HTML Response
